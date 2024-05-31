@@ -12,6 +12,7 @@ struct RatingsView: View {
     let ratings = [5, 4, 3, 2, 1]
     let dict: [Int: Color] = [1: pastelTeal, 2: pastelBlue, 3: pastelIndigo, 4: pastelPurple, 5: pastelPink]
     @State private var items = Array(1...120)
+    @State var isLoading: Bool = false
     
     let columns = [
         GridItem(.fixed(30), spacing: 3),
@@ -77,10 +78,23 @@ struct RatingsView: View {
             }
         }
         .task {
+            isLoading = true
+            defer { isLoading = false }
+            
             do {
                 books = try await booksGetHTTP()
             } catch {
                 print("error")
+            }
+        }
+        .overlay {
+            if isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                    .background {
+                        pink.opacity(0.7)
+                    }
             }
         }
     }

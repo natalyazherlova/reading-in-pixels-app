@@ -40,6 +40,8 @@ struct PageCountsView: View {
         GridItem(.fixed(30), spacing: 3),
         GridItem(.fixed(30), spacing: 3)]
     
+    @State var isLoading: Bool = false
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -92,10 +94,23 @@ struct PageCountsView: View {
             }
         }
         .task {
+            isLoading = true
+            defer { isLoading = false }
+            
             do {
                 books = try await booksGetHTTP()
             } catch {
                 print("error")
+            }
+        }
+        .overlay {
+            if isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                    .background {
+                        pink.opacity(0.7)
+                    }
             }
         }
     }
