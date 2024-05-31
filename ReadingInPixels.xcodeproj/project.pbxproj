@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850117DE2C09E0BB0046BB0C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850117DD2C09E0BB0046BB0C /* Colors.swift */; };
+		850117E02C09E1050046BB0C /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850117DF2C09E1050046BB0C /* Modifiers.swift */; };
 		85014AE32BC54C220098D689 /* PubDatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85014AE22BC54C220098D689 /* PubDatesView.swift */; };
 		856533D32BA063EC00DC9680 /* ReadingInPixelsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856533D22BA063EC00DC9680 /* ReadingInPixelsApp.swift */; };
 		856533D52BA063EC00DC9680 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856533D42BA063EC00DC9680 /* ContentView.swift */; };
@@ -20,15 +22,16 @@
 		8569B9A22BC6A99700BE3647 /* LanguagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569B9A12BC6A99700BE3647 /* LanguagesView.swift */; };
 		8581ED4F2BBFF01100D28CB6 /* PageCountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8581ED4E2BBFF01100D28CB6 /* PageCountsView.swift */; };
 		858C967C2BBEBEE300DB7B80 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C967B2BBEBEE300DB7B80 /* DetailView.swift */; };
+		85CADEB22C09F05500DAFE0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 85CADEB12C09F05500DAFE0A /* Alamofire */; };
 		85E07CC02BB6C43A000ED82E /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E07CBF2BB6C43A000ED82E /* RatingsView.swift */; };
 		85E07CC22BBADE15000ED82E /* ListOfBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E07CC12BBADE15000ED82E /* ListOfBooksView.swift */; };
 		85FEFFF02BCD67EA006C040D /* BooksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEFFEF2BCD67EA006C040D /* BooksAPI.swift */; };
-		85FEFFF32BCD690A006C040D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 85FEFFF22BCD690A006C040D /* Alamofire */; };
-		85FEFFF52BCD690A006C040D /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 85FEFFF42BCD690A006C040D /* AlamofireDynamic */; };
 		85FEFFF72BCD6B1C006C040D /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEFFF62BCD6B1C006C040D /* BaseURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		850117DD2C09E0BB0046BB0C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		850117DF2C09E1050046BB0C /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		85014AE22BC54C220098D689 /* PubDatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubDatesView.swift; sourceTree = "<group>"; };
 		856533CF2BA063EC00DC9680 /* ReadingInPixels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingInPixels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		856533D22BA063EC00DC9680 /* ReadingInPixelsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingInPixelsApp.swift; sourceTree = "<group>"; };
@@ -54,8 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85FEFFF32BCD690A006C040D /* Alamofire in Frameworks */,
-				85FEFFF52BCD690A006C040D /* AlamofireDynamic in Frameworks */,
+				85CADEB22C09F05500DAFE0A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,8 @@
 				856533E02BA07CAB00DC9680 /* AddNewBook.swift */,
 				8565341E2BB17BBF00DC9680 /* RatingView.swift */,
 				856533D62BA063F000DC9680 /* Assets.xcassets */,
+				850117DF2C09E1050046BB0C /* Modifiers.swift */,
+				850117DD2C09E0BB0046BB0C /* Colors.swift */,
 				85FEFFEF2BCD67EA006C040D /* BooksAPI.swift */,
 				85FEFFF62BCD6B1C006C040D /* BaseURL.swift */,
 				856533D82BA063F000DC9680 /* Preview Content */,
@@ -127,8 +131,7 @@
 			);
 			name = ReadingInPixels;
 			packageProductDependencies = (
-				85FEFFF22BCD690A006C040D /* Alamofire */,
-				85FEFFF42BCD690A006C040D /* AlamofireDynamic */,
+				85CADEB12C09F05500DAFE0A /* Alamofire */,
 			);
 			productName = ReadingInPixels;
 			productReference = 856533CF2BA063EC00DC9680 /* ReadingInPixels.app */;
@@ -159,7 +162,7 @@
 			);
 			mainGroup = 856533C62BA063EC00DC9680;
 			packageReferences = (
-				85FEFFF12BCD690A006C040D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				85CADEB02C09F05500DAFE0A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 856533D02BA063EC00DC9680 /* Products */;
 			projectDirPath = "";
@@ -196,7 +199,9 @@
 				85FEFFF72BCD6B1C006C040D /* BaseURL.swift in Sources */,
 				856533E12BA07CAB00DC9680 /* AddNewBook.swift in Sources */,
 				8569B9A02BC6A8D800BE3647 /* AuthorsView.swift in Sources */,
+				850117DE2C09E0BB0046BB0C /* Colors.swift in Sources */,
 				85FEFFF02BCD67EA006C040D /* BooksAPI.swift in Sources */,
+				850117E02C09E1050046BB0C /* Modifiers.swift in Sources */,
 				856534252BB2D77800DC9680 /* GenresView.swift in Sources */,
 				8569B9A22BC6A99700BE3647 /* LanguagesView.swift in Sources */,
 				8565341F2BB17BBF00DC9680 /* RatingView.swift in Sources */,
@@ -343,6 +348,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,6 +379,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -411,26 +418,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		85FEFFF12BCD690A006C040D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		85CADEB02C09F05500DAFE0A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
+				kind = exactVersion;
+				version = 5.9.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		85FEFFF22BCD690A006C040D /* Alamofire */ = {
+		85CADEB12C09F05500DAFE0A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 85FEFFF12BCD690A006C040D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 85CADEB02C09F05500DAFE0A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		85FEFFF42BCD690A006C040D /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 85FEFFF12BCD690A006C040D /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

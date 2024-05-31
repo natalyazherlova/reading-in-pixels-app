@@ -12,6 +12,7 @@ struct LanguagesView: View {
     let languages = ["English", "Russian", "East Asian", "East European", "Iberian", "West European", "West Asian"]
     let dict: [String: Color] = ["English": pastelPink, "Russian": pastelDarkPurple, "East Asian": pastelIndigo, "East European": pastelBlue, "Iberian": pastelTeal, "West European": pastelForestGreen, "West Asian": pastelGreen]
     @State private var items  = Array(1...120)
+    @State var isLoading: Bool = false
     
     let columns = [
         GridItem(.fixed(30), spacing: 3),
@@ -79,10 +80,23 @@ struct LanguagesView: View {
             }
         }
         .task {
+            isLoading = true
+            defer { isLoading = false }
+            
             do {
                 books = try await booksGetHTTP()
             } catch {
                 print("error")
+            }
+        }
+        .overlay {
+            if isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                    .background {
+                        pink.opacity(0.7)
+                    }
             }
         }
     }

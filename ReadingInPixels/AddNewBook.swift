@@ -22,13 +22,16 @@ struct AddNewBook: View {
     let languages = ["English", "Russian", "East Asian", "East European", "Iberian", "West European", "West Asian"]
     @State private var year = "2024"
     @State private var selectionDate = Date.now
-    @State private var pageCount = 0
+    @State private var pageCount = 300
     @FocusState private var titleIsFocused: Bool
     @FocusState private var authorIsFocused: Bool
     @FocusState private var pageCountIsFocused: Bool
-
+    var disableSaveButton: Bool {
+        title.isEmpty || author.isEmpty
+    }
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section {
                     TextField("Title", text: $title)
@@ -115,55 +118,40 @@ struct AddNewBook: View {
                     TextField("Page count", value: $pageCount, format: .number)
                         .keyboardType(.decimalPad)
                         .focused($pageCountIsFocused)
+                        
                 } header: {
                     Text("how many pages does the book have?")
                         .foregroundColor(pink)
                 }
-            
-                Section {
-                    Button("Save") {
-                        let newBook = BookCreateParams(title: title, author: author, genre: genre, rating: rating, format: format, gender: gender, language: language, year: selectionDate.formatted(date: .long, time: .omitted), page: pageCount)
-                        Task {
-                            do {
-                                try await bookCreateHTTP(input: newBook)
-                            } catch {
-                                print("error")
-                            }
+                
+                Button("Save") {
+                    let newBook = BookCreateParams(title: title, author: author, genre: genre, rating: rating, format: format, gender: gender, language: language, year: selectionDate.formatted(date: .long, time: .omitted), page: pageCount)
+                    Task {
+                        do {
+                            try await bookCreateHTTP(input: newBook)
+                        } catch {
+                            print("error")
                         }
-                        dismiss()
                     }
+                    dismiss()
                 }
-                .foregroundColor(pink)
+                .disabled(disableSaveButton)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .foregroundColor(disableSaveButton ? disabledElementGrey : pink)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                
             }
             .navigationBarTitle("New Book", displayMode: .inline)
             .toolbar {
-                if titleIsFocused {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
                     Button("Done") {
+                        pageCountIsFocused = false
                         titleIsFocused = false
-                    }
-                }
-                
-                if authorIsFocused {
-                    Button("Done") {
                         authorIsFocused = false
                     }
                 }
-                
-                if pageCountIsFocused {
-                    Button("Done") {
-                        pageCountIsFocused = false
-                    }
-                }
             }
-            
-//            .toolbar {
-//                ToolbarItemGroup(placement: .keyboard) {
-//                    Spacer()
-//                    Button("Done") {
-//                        
-//                    }
-//                }
-//            }
         }
     }
 }
